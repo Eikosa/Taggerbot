@@ -7,6 +7,7 @@ from telethon.tl.types import ChannelParticipantsAdmins
 from pyrogram.types.messages_and_media import Message
 from pyrogram import Client, filters
 import time
+import random
 
 
 logging.basicConfig(
