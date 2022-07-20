@@ -117,7 +117,7 @@ async def mentionall(event):
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
-    msg = event.pattern_match.group(1)
+    msg = event.text.replace("/tag ","") #event.pattern_match.group(1)
   elif event.reply_to_msg_id:
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
@@ -148,7 +148,8 @@ async def mentionall(event):
         
     sender = await event.get_sender()
     rxyzdev_initT = f"\n🐙 - [{sender.first_name}](tg://user?id={sender.id})"
-    if event.chat_id in rxyzdev_tagTot:await event.respond(f"**✅ Etiket işlemi başarıyla tamamlandı.**\n\n**👥 Etiketlenen Kişi Sayısı:** {rxyzdev_tagTot[event.chat_id]}\n**🗣 Etiket İşlemini Başlatan:** {rxyzdev_initT}")
+    if event.chat_id in rxyzdev_tagTot:
+	await event.respond(f"**✅ Etiket işlemi başarıyla tamamlandı.**\n\n**👥 Etiketlenen Kişi Sayısı:** {rxyzdev_tagTot[event.chat_id]}\n**🗣 Etiket İşlemini Başlatan:** {rxyzdev_initT}")
   
   if mode == "text_on_reply":
     anlik_calisan.append(event.chat_id)
@@ -169,7 +170,8 @@ async def mentionall(event):
      
     sender = await event.get_sender()
     rxyzdev_initT = f"[{sender.first_name}](tg://user?id={sender.id})"      
-    if event.chat_id in rxyzdev_tagTot:await event.respond(f"**✅ Etiket işlemi başarıyla tamamlandı.**\n\n**👥 Etiketlenen Kişi Sayısı:** {rxyzdev_tagTot[event.chat_id]}\n**🗣 Etiket İşlemini Başlatan:** {rxyzdev_initT}")
+    if event.chat_id in rxyzdev_tagTot:
+	await event.respond(f"**✅ Etiket işlemi başarıyla tamamlandı.**\n\n**👥 Etiketlenen Kişi Sayısı:** {rxyzdev_tagTot[event.chat_id]}\n**🗣 Etiket İşlemini Başlatan:** {rxyzdev_initT}")
 
 
 
